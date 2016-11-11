@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:show, :edit, :update, :destroy]
-
+  before_action :find_post, only: [:show, :edit, :update, :destroy,]
   def index
   end
 
@@ -9,12 +8,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new post_prams
+    @post = Post.new post_params
+
 
     if @post.save
-      redirect_to @post, notice: "Hellz yeah, Tom! Your article was successfully saved!"
+      redirect_to @post, notice: "Hellz yeah, Tom! Your article was saved!"
     else
-      render 'new', notice: "Oh no, Tom! I was unable to save your post."
+      render 'new', notice: "It was a trap!"
     end
   end
 
@@ -24,8 +24,10 @@ class PostsController < ApplicationController
   def edit
   end
 
+
+
   def update
-    if @post.update post_prams
+    if @post.update post_params
       redirect_to @post, notice: "Huzzah! Your article was successfully saved!"
     else
       render 'edit'
@@ -34,16 +36,16 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to post_path
+    redirect_to posts_path
   end
 
   private
 
-  def post_prams
-    params.require(:post).permit(:title, :content)
+  def post_params
+      params.require(:post).permit(:title, :content)
   end
 
   def find_post
-    @post = Post.find(params[:id])
+      @post = Post.find(params[:id])
   end
 end
