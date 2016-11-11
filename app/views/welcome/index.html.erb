@@ -1,0 +1,30 @@
+<div class="wrapper wrapper_padding cleafix">
+    <div class="col-1 about homepage_content">
+      <h2>About</h2>
+      <hr>
+      <p>I'm a designer living in Staffordshire, United Kingdom </p>
+      <p>By day I work as a creative designer at a worldwide childcare company &amp; by night I design type based poster and sell them</p>
+      <p>You can find me speaking in 140 characters on <a href="#">
+      Twitter</a>, surfing some /r/graphic_design on reddit and sharing what I'm watching on Trackt
+      </p>
+    </div>
+    <div class="col-2 homepage_content">
+      <h2>Stuff I've Written</h2>
+      <hr>
+
+      <% @posts.each do |post| %>
+        <h3><a href="#"><%= link_to post.title, post %></a></h3>
+        <p class="date"><%= post.created_at.strftime("%A, %b %d") %></p>
+      <% end %>
+    </div>
+    <div class="col-3 homepage_content">
+      <h2>Stuff I've Designed</h2>
+      <hr>
+      <h3><a href="">Melenium Fulcoun</a></h3>
+      <p class="date">Friday April 1oth</p>
+      <h3>The DO list</h3>
+      <p class="date">Friday April 1oth</p><h3>The DO list</h3>
+      <p class="date">Friday April 1oth</p>
+    </div>
+</div>
+<div class="clearfix"></div>

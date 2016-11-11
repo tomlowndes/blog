@@ -10,7 +10,7 @@
 </head>
 <body>
   <header id="main_navigation" class="clearfix">
-    <a href="index.html" class="name">Tom Lowndes</a>
+    <%= link_to "Tom Lowndes", root_path, class: "name" %>
     <nav>
       <%= link_to "Articles", posts_path %>
      <a href="#">Projects</a>
@@ -18,7 +18,15 @@
     </nav>
   </header>
 
-<%= yield %>
+  <%= yield %>
 
+<footer id="main_footer">
+
+    <nav>
+      <a href="http://twitter.com/tom_lowndes" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href=""><i class="fa fa-dribbble" target="_blank"></i></a>
+      <a href=""><i class="fa fa-reddit-alien" target="_blank"></i></a>
+    </nav>
+</footer>
 </body>
 </html>
